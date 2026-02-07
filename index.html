@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Cek Stok Gudang</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>STOK ELEKTRONIK</h1>
+    <a href="https://wa.me/6285154993435?text=Halo,%20saya%20ingin%20update%20stok%20barang." class="btn-update-wa">
+        📲 Hubungi untuk update stok
+    </a>
+</header>
+
+<div class="search-container">
+    <input type="text" id="inputCari" placeholder="Cari nama barang atau merek..." onkeyup="render()">
+</div>
+
+<div class="filter-section">
+    <div class="filter-group">
+        <div class="filter-label">Filter Status</div>
+        <button class="btn-stok active" id="stok-semua" onclick="setModeStok('semua')">Semua</button>
+        <button class="btn-stok" id="stok-ready" data-mode="ready" onclick="setModeStok('ready')">Ready ✅</button>
+        <button class="btn-stok" id="stok-habis" data-mode="habis" onclick="setModeStok('habis')">Habis ❌</button>
+    </div>
+    
+    <div class="filter-group">
+        <div class="filter-label">Kategori</div>
+        <div id="filterKategori" class="filter-group"></div>
+    </div>
+</div>
+
+<div class="list-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Nama Produk</th>
+                <th>Kategori</th>
+                <th>Harga</th>
+                <th style="text-align: center;">Status Barang</th>
+            </tr>
+        </thead>
+        <tbody id="tempatBarang"></tbody>
+    </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
