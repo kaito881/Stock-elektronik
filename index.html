@@ -2,50 +2,43 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Cek Stok Gudang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Stok Gudang App</title>
+    <meta name="theme-color" content="#2c3e50">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1>STOK ELEKTRONIK</h1>
-    <a href="https://wa.me/6285154993435?text=Halo,%20saya%20ingin%20update%20stok%20barang." class="btn-update-wa">
-        📲 Hubungi untuk update stok
-    </a>
+    <h1>GUDANG ELEKTRONIK APP</h1>
+    <div class="stats-bar">
+        <div class="stat-item"><span class="stat-val" id="stat-total">0</span><span class="stat-lbl">Total</span></div>
+        <div class="stat-item" style="color: #2ecc71;"><span class="stat-val" id="stat-ready">0</span><span class="stat-lbl">Ready</span></div>
+        <div class="stat-item" style="color: #ff7675;"><span class="stat-val" id="stat-sold">0</span><span class="stat-lbl">Sold</span></div>
+    </div>
 </header>
 
 <div class="search-container">
-    <input type="text" id="inputCari" placeholder="Cari nama barang atau merek..." onkeyup="render()">
+    <input type="text" id="inputCari" placeholder="Cari tipe barang..." onkeyup="render()">
 </div>
 
 <div class="filter-section">
+    <div class="filter-label">Status Barang</div>
     <div class="filter-group">
-        <div class="filter-label">Filter Status</div>
-        <button class="btn-stok active" id="stok-semua" onclick="setModeStok('semua')">Semua</button>
-        <button class="btn-stok" id="stok-ready" data-mode="ready" onclick="setModeStok('ready')">Ready ✅</button>
-        <button class="btn-stok" id="stok-habis" data-mode="habis" onclick="setModeStok('habis')">Habis ❌</button>
+        <button class="btn-filter btn-stok active" id="stok-semua" onclick="setModeStok('semua')">Semua</button>
+        <button class="btn-filter btn-stok" id="stok-ready" onclick="setModeStok('ready')">Ready</button>
+        <button class="btn-filter btn-stok" id="stok-habis" onclick="setModeStok('habis')">Habis</button>
     </div>
-    
-    <div class="filter-group">
-        <div class="filter-label">Kategori</div>
-        <div id="filterKategori" class="filter-group"></div>
-    </div>
+    <div style="height: 15px;"></div>
+    <div class="filter-label">Kategori Produk</div>
+    <div id="filterKategori" class="filter-group"></div>
 </div>
 
 <div class="list-container">
-    <table>
-        <thead>
-            <tr>
-                <th>Nama Produk</th>
-                <th>Kategori</th>
-                <th>Harga</th>
-                <th style="text-align: center;">Status Barang</th>
-            </tr>
-        </thead>
-        <tbody id="tempatBarang"></tbody>
-    </table>
+    <table><tbody id="tempatBarang"></tbody></table>
 </div>
+
+<button id="btnSort" class="fab-sort" onclick="gantiUrutan()">⇅ <span id="txtSort">Terbaru</span></button>
 
 <script src="script.js"></script>
 </body>
